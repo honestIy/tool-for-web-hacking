@@ -1,11 +1,3 @@
 # tool-for-web-hacking
 
-OPTIONS:
-
-[1] advanced nmap scan with nmap 
-[2] directory hunter with gobuster
-[3] check dbs with sqlmap 
-[4] check dbs with sqlmap advanced mode 
-[5] check vulns with nikto 
-[6] check vulns with skipfish
-[7] find subdomains with subfinder 
+![Screenshot_2022-04-04_19-05-50](https://user-images.githubusercontent.com/102387043/161664825-d56dd306-774e-43b7-a1b2-46cedaa74ce4.jpg)
