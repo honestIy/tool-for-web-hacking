@@ -15,12 +15,13 @@ print(Fore.YELLOW +"""
 """)
 
 print(Fore.GREEN +"""
-[1] advanced scan scan with nmap 
+[1] advanced nmap scan with nmap 
 [2] directory hunter with gobuster
 [3] check vulns with nikto 
 [4] check vulns with skipfish
 [5] find subdomains with subfinder
-[6] whois scanner 
+[6] find info about target with whois 
+[7] find exploits with searchsploit
 
 // SQLMAP 
 
@@ -39,7 +40,7 @@ if at == "2" :
    atdir = input("wordlist dir => ")
    os.system("gobuster dir -u " + at3 + " -w " + atdir + "") 
 if at == "3" :
-   atnikto = input("link => ") 
+   atnikto = input("url => ") 
    os.system("nikto -h " + atnikto + "")
 if at == "4" :
     atskipfish = input("url => ")
@@ -50,19 +51,22 @@ if at == "5" :
 if at == "6" :
    atwhois = input ("domain => ")
    os.system("whois " + atwhois + "")
-if at == "7":
+if at == "7" :
+   atss = input("exploit => ")
+   os.system("searchsploit " + atss +"")
+if at == "8":
    atsq1 = input("url => ")
    call(["sqlmap", atsq1 ,"--dbs", "--random-agent"])
-if at == "8" :
+if at == "9" :
    atsq3 = input("url => ")
    atdbn = input("database name => ") 
    call(["sqlmap", atsq3 ,"-D", atdbn, "--tables", "--random-agent"])
-if at == "9" :
+if at == "10" :
    atsq4 = input("url => ")
    atdbn2 = input("database name => ") 
    attb = input("table name => ") 
    call(["sqlmap", atsq4,"-D", atdbn2, "-T", attb, "--dump", "--random-agent"])
-if at == "10" :
+if at == "11" :
    atsq2 = input("url =>")
    call(["sqlmap", atsq2 ,"--tamper=space2comment,between,space2plus", "-v 2", "--hex", "--random-agent", "--skip-waf", "--risk=3", "--level=3"])
 else : 
