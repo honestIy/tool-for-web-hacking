@@ -34,7 +34,7 @@ if at == "2" :
    os.system("gobuster dir -u " + at3 + " -w " + atdir + "") 
 if at == "3":
    atsql = input("url => ")
-   os.system("sqlmap -u"+ atsql +"--dbs --random-agent")
+   os.system("sqlmap -u " + atsql + "--random-agent --dbs")
 if at == "4" :
    atsqla = input("url =>")
    os.system("sqlmap -u " + atsqla + "--tamper=space2comment,between,space2plus -v 2 --hex --random-agent --skip-waf --risk=3 --level=3 --dbs")
@@ -42,10 +42,10 @@ if at == "5" :
    atnikto = input("link => ") 
    os.system("nikto -h " + atnikto + "")
 if at == "6" :
-    atskipfish = input("link => ")
+    atskipfish = input("url => ")
     os.system("skipfish -o fstscan " + atskipfish + "")
 if at == "7" :
-    atsubfinder = input("link => ")
+    atsubfinder = input("url => ")
     os.system("subfinder -d " + atsubfinder + "")
 else : 
   print("something went wrong ")
