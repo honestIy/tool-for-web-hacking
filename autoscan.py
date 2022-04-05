@@ -15,7 +15,7 @@ print(Fore.YELLOW +"""
 """)
 
 print(Fore.GREEN +"""
-[1] advanced nmap scan with nmap 
+[1] advanced scan scan with nmap 
 [2] directory hunter with gobuster
 [3] check vulns with nikto 
 [4] check vulns with skipfish
