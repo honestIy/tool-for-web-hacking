@@ -27,14 +27,14 @@ print(Fore.GREEN +"""
 at = input("number => ")
 if at == "1" :
    atnmap = input("ip or url => ") 
-   os.system("sudo nmap " + atnmap + "-sV -O -Pn -sS")
+   os.system("sudo nmap -sV -O -Pn -sS " + atnmap + "")
 if at == "2" : 
    at3 = input("url => ")
    atdir = input("wordlist dir => ")
    os.system("gobuster dir -u " + at3 + " -w " + atdir + "") 
 if at == "3":
    atsql = input("url => ")
-   os.system("sqlmap -u " + atsql + "--dbs --random-agent")
+   os.system("sqlmap -u"+ atsql +"--dbs --random-agent")
 if at == "4" :
    atsqla = input("url =>")
    os.system("sqlmap -u " + atsqla + "--tamper=space2comment,between,space2plus -v 2 --hex --random-agent --skip-waf --risk=3 --level=3 --dbs")
