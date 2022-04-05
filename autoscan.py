@@ -25,10 +25,10 @@ print(Fore.GREEN +"""
 
 // SQLMAP 
 
-[7] sqli with sqlmap 
-[8] dbs, --tables
-[9] dbs, tables, --dump
-[10] sql with sqlmap (advanced mode) 
+[8] sqli with sqlmap 
+[9] dbs, --tables
+[10] dbs, tables, --dump
+[11] sql with sqlmap (advanced mode) 
 
 """)
 at = input("number => ")
