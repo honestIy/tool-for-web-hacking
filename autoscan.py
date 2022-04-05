@@ -34,7 +34,7 @@ if at == "2" :
    os.system("gobuster dir -u " + at3 + " -w " + atdir + "") 
 if at == "3":
    atsql = input("url => ")
-   os.system("sqlmap -u " + atsql + "--random-agent --dbs")
+   os.system("sqlmap -u " + atsql + "--dbs --random-agent")
 if at == "4" :
    atsqla = input("url =>")
    os.system("sqlmap -u " + atsqla + "--tamper=space2comment,between,space2plus -v 2 --hex --random-agent --skip-waf --risk=3 --level=3 --dbs")
