@@ -17,18 +17,19 @@ print(Fore.YELLOW +"""
 print(Fore.GREEN +"""
 [1] advanced nmap scan with nmap 
 [2] directory hunter with gobuster
-[3] check vulns with nikto 
-[4] check vulns with skipfish
-[5] find subdomains with subfinder
-[6] find info about target with whois 
-[7] find exploits with searchsploit
+[3] admin login hunter with gobuster
+[4] check vulns with nikto 
+[5] check vulns with skipfish
+[6] find subdomains with subfinder
+[7] find info about target with whois 
+[8] find exploits with searchsploit
 
 // SQLMAP 
 
-[8] sqli with sqlmap 
-[9] dbs, --tables
-[10] dbs, tables, --dump
-[11] sql with sqlmap (advanced mode) 
+[9] sqli with sqlmap 
+[10] dbs, --tables
+[11] dbs, tables, --dump
+[12] sql with sqlmap (advanced mode) 
 
 """)
 at = input("number => ")
@@ -36,38 +37,43 @@ if at == "1" :
    atnmap = input("ip or url => ") 
    os.system("sudo nmap -sV -O -Pn -sS " + atnmap + "")
 if at == "2" : 
-   at3 = input("url => ")
+   atw = input("url => ")
    atdir = input("wordlist dir => ")
-   os.system("gobuster dir -u " + at3 + " -w " + atdir + "") 
+   os.system("gobuster dir -u " + atw + " -w " + atdir + "") 
 if at == "3" :
+   atadm = input("url => ")
+   atdir = input("wordlist dir => ")
+   os.system("gobuster dir -u " + atadm + " -w " + atdir + "")
+if at == "4" :
    atnikto = input("url => ") 
    os.system("nikto -h " + atnikto + "")
-if at == "4" :
+if at == "5" :
     atskipfish = input("url => ")
     os.system("skipfish -o fstscan " + atskipfish + "")
-if at == "5" :
+if at == "6" :
     atsubfinder = input("url => ")
     os.system("subfinder -d " + atsubfinder + "")
-if at == "6" :
+if at == "7" :
    atwhois = input ("domain => ")
    os.system("whois " + atwhois + "")
-if at == "7" :
+if at == "8" :
    atss = input("exploit => ")
    os.system("searchsploit " + atss +"")
-if at == "8":
+if at == "9":
    atsq1 = input("url => ")
    call(["sqlmap", atsq1 ,"--dbs", "--random-agent"])
-if at == "9" :
+   print(Fore.RED + '[URL]' + atsq1)
+if at == "10" :
    atsq3 = input("url => ")
    atdbn = input("database name => ") 
    call(["sqlmap", atsq3 ,"-D", atdbn, "--tables", "--random-agent"])
-if at == "10" :
+   print(Fore.RED + '[URL]', atsq3 + '\n' + '[DBS]', atdbn)
+if at == "11" :
    atsq4 = input("url => ")
    atdbn2 = input("database name => ") 
    attb = input("table name => ") 
    call(["sqlmap", atsq4,"-D", atdbn2, "-T", attb, "--dump", "--random-agent"])
-if at == "11" :
+   print(Fore.RED + '[URL]', atsq4 + '\n' + '[DBS]', atdbn2 + '\n' + '[TAB]', attb)
+if at == "12" :
    atsq2 = input("url =>")
    call(["sqlmap", atsq2 ,"--tamper=space2comment,between,space2plus", "-v 2", "--hex", "--random-agent", "--skip-waf", "--risk=3", "--level=3"])
-else : 
-   print("something went wrong ")
