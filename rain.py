@@ -128,6 +128,7 @@ if at == "DS" :
         datetime.date(2021, 1, 1),
         datetime.date(2022, 4, 1))
    ):
+    print(Fore.RED +"[!] scanning: " + i)
     call(["sqlmap", i ,"--dbs", "--random-agent"])
 
 if at == "WS" :
