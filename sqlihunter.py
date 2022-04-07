@@ -19,7 +19,7 @@ print(Fore.LIGHTGREEN_EX +"""
         |_|                                   
 """)
 
-def test():
+def sqlih():
    searchterm = input(f'{Fore.GREEN}dork => {Fore.WHITE}')
    searchnumber = 1
 
@@ -34,4 +34,4 @@ def test():
         datetime.date(2022, 4, 1))
    ):
     call(["sqlmap", i ,"--dbs", "--random-agent"])
-test()
+sqlih()
