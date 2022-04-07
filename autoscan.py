@@ -65,7 +65,7 @@ if at == "7" :
 if at == "8" :
    atss = input("exploit => ")
    os.system("searchsploit " + atss +"")
-if at == "S"
+if at == "S" :
    atsq1 = input("url => ")
    call(["sqlmap", atsq1 ,"--dbs", "--random-agent"])
    print(Fore.RED + '[URL]' + atsq1)
