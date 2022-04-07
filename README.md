@@ -1,4 +1,4 @@
-# tool-for-web-hacking
+# Webhacking tool
 
 * ALWAYS UPDATING
 * NOT FINISHED YET
