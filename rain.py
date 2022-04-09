@@ -21,12 +21,13 @@ discord: rain#1000
 print(Fore.LIGHTYELLOW_EX +"""
 [1] advanced scan with nmap 
 [2] directory hunter with gobuster
-[3] admin login hunter with gobuster
-[4] check vulns with nikto 
-[5] check vulns with skipfish
-[6] find subdomains with subfinder
-[7] find info about target with whois 
-[8] find exploits with searchsploit
+[3] directory hunter with dirb
+[4] admin login hunter with gobuster
+[5] check vulns with nikto 
+[6] check vulns with skipfish
+[7] find subdomains with subfinder
+[8] find info about target with whois 
+[9] find exploits with searchsploit
 
 // SQLMAP
 
@@ -51,27 +52,31 @@ if at == "2" :
    os.system("gobuster dir -u " + atw + " -w " + atdir + "") 
 
 if at == "3" :
+   atdir = input("url => ")
+   os.system("dirb " + atdir + " -w")
+
+if at == "4" :
    atadm = input("url => ")
    atdir = input("wordlist dir => ")
    os.system("gobuster dir -u " + atadm + " -w " + atdir + "")
 
-if at == "4" :
+if at == "5" :
    atnikto = input("url => ") 
    os.system("nikto -h " + atnikto + "")
            
-if at == "5" :
+if at == "6" :
     atskipfish = input("url => ")
     os.system("skipfish -o fstscan " + atskipfish + "")
            
-if at == "6" :
+if at == "7" :
     atsubfinder = input("url => ")
     os.system("subfinder -d " + atsubfinder + "")
            
-if at == "7" :
+if at == "8" :
    atwhois = input ("domain => ")
    os.system("whois " + atwhois + "")
            
-if at == "8" :
+if at == "9" :
    atss = input("exploit => ")
    os.system("searchsploit " + atss +"")
            
