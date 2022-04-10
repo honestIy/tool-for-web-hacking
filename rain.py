@@ -1,5 +1,6 @@
 import os
 import colorama
+import time
 from subprocess import call
 from colorama import Fore, Style
 import datetime
