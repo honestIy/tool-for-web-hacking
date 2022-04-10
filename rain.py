@@ -43,7 +43,7 @@ at = input(Fore.LIGHTGREEN_EX +"option => ")
 
 if at == "1" :
    atnmap = input("ip or url => ") 
-   os.system("sudo nmap -sV -O -Pn -sS " + atnmap + "")
+   os.system("sudo nmap -A -F " + atnmap + "")
            
 if at == "2" : 
    atw = input("url => ")
