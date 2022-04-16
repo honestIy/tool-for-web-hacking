@@ -147,9 +147,9 @@ starting TRACEROUTE...
 
             #sys.stdout.close()
 
-            m = input(f'''{Fore.LIGHTRED_EX}[?]{Fore.CYAN} Back to Menu? (y/n): '''+ Fore.GREEN)
+            m = input(f'''{Fore.LIGHTRED_EX}[?]{Fore.CYAN} do you want to scan more? (y/n): '''+ Fore.GREEN)
             if m == "y":
-                menu()
+                start()
 
     elif option == "2":
 
@@ -178,7 +178,7 @@ starting THEHARVESTER...
             
         '''+ Fore.GREEN)
 
-        os.system("python3 theHarvester/theHarvester.py -d " + d1 +" -b google")
+        os.system("python3 theHarvester/theHarvester.py -d "+ d1 +" -b google")
 
         print(f'\n')
 
@@ -264,9 +264,9 @@ starting NMAP...
 
 
         if c == "y":
-            m = input(f'''{Fore.LIGHTRED_EX}[?]{Fore.CYAN} Back to Menu? (y/n): '''+ Fore.GREEN)
+            m = input(f'''{Fore.LIGHTRED_EX}[?]{Fore.CYAN} do you want to scan more? (y/n): '''+ Fore.GREEN)
             if m == "y":
-                menu()
+                start()
 
     elif option == "3":
 
@@ -315,8 +315,8 @@ starting NMAP VULN SCANNER...
             print(f'\n')
 
         if c == "y":
-            m = input(f'''{Fore.LIGHTRED_EX}[?]{Fore.CYAN} Back to Menu? (y/n): '''+ Fore.GREEN)
+            m = input(f'''{Fore.LIGHTRED_EX}[?]{Fore.CYAN} do you want to scan more? (y/n): '''+ Fore.GREEN)
             if m == "y":
-                menu()
+                start()
 
 
