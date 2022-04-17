@@ -240,7 +240,7 @@ starting AMASS...
 
             options = input(Fore.RED +f'''[!] {Fore.CYAN}extensions => '''+ Fore.GREEN)
 
-            os.system("amass " + options + "" + d1 +"")
+            os.system("amass -d " + options + "" + d1 +"")
 
             print(f'\n')
 
