@@ -295,8 +295,6 @@ starting NIKTO...
 
         '''+ Fore.GREEN)
 
-        options = input(Fore.RED +f'''[!] {Fore.CYAN}option => '''+ Fore.GREEN)
-
         os.system("nikto -h " + d1 +"")
 
         print(f'\n')
