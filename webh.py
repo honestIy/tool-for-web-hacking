@@ -26,7 +26,7 @@ def start():
 {Fore.CYAN}                            
      [1] recon phase         [2] info gathering        [3] analysis phase                                      
 {Fore.LIGHTYELLOW_EX}      
-     [-] whois               [-] theHarvester          [-] nikto
+     [-] whois               [-] sublist3r             [-] nikto
      [-] nslookup            [-] dirsearch             [-] nmap vuln
      [-] dig                 [-] dirb                   
      [-] dnsrecon            [-] amass
@@ -131,7 +131,6 @@ starting FIERCE...
 
             print(f'\n')
 
-
         c = input(Fore.YELLOW +f'''continue? ({Fore.GREEN}y/{Fore.LIGHTRED_EX}n{Fore.YELLOW}) => '''+ Fore.GREEN)
         if c == "y":
 
@@ -142,6 +141,19 @@ starting TRACEROUTE...
             '''+ Fore.GREEN)
 
             os.system("traceroute " + d1 +"")
+
+            print(f'\n')
+
+        c = input(Fore.YELLOW +f'''continue? ({Fore.GREEN}y/{Fore.LIGHTRED_EX}n{Fore.YELLOW}) => '''+ Fore.GREEN)
+        if c == "y":
+
+            print(Fore.CYAN +'''
+
+starting TAKEOVER...
+            
+            '''+ Fore.GREEN)
+
+            os.system("python takeover/takeover.py -d " + d1 +"")
 
             print(f'\n')
 
@@ -172,30 +184,17 @@ INFO
 
         d1 = input(f'''{Fore.LIGHTYELLOW_EX}(pentester/menu/{Fore.CYAN}infogathering{Fore.LIGHTYELLOW_EX}){Fore.GREEN} => '''+ Fore.GREEN)
 
-        print(Fore.CYAN +'''
-
-starting THEHARVESTER...
-            
-        '''+ Fore.GREEN)
-
-        os.system("python3 theHarvester/theHarvester.py -d "+ d1 +" -b google")
-
-        print(f'\n')
-
-        c = input(Fore.YELLOW +f'''continue? ({Fore.GREEN}y/{Fore.LIGHTRED_EX}n{Fore.YELLOW}) => '''+ Fore.GREEN)
-        if c == "y":
-
-            print(Fore.CYAN +f'''
+        print(Fore.CYAN +f'''
             
 starting DIRSEARCH...
 
 {Fore.LIGHTRED_EX} make sure you select an extension (ex: php,asp)           
             '''+ Fore.GREEN)
 
-            extensions = input(Fore.RED +f'''[!] {Fore.CYAN}extensions => '''+ Fore.GREEN)
-            os.system("python dirsearch/dirsearch.py -e "+ extensions +" -u "'https://' + d1 +"")
+        extensions = input(Fore.RED +f'''[!] {Fore.CYAN}extensions => '''+ Fore.GREEN)
+        os.system("python dirsearch/dirsearch.py -e "+ extensions +" -u "'https://' + d1 +"")
 
-            print(f'\n')
+        print(f'\n')
 
         c = input(Fore.YELLOW +f'''continue? ({Fore.GREEN}y/{Fore.LIGHTRED_EX}n{Fore.YELLOW}) => '''+ Fore.GREEN)
         if c == "y":
@@ -262,6 +261,18 @@ starting NMAP...
 
             print(f'\n')
 
+        c = input(Fore.YELLOW +f'''continue? ({Fore.GREEN}y/{Fore.LIGHTRED_EX}n{Fore.YELLOW}) => '''+ Fore.GREEN)
+        if c == "y":
+
+            print(Fore.CYAN +'''
+
+starting sublist3r...
+            
+            '''+ Fore.GREEN)
+
+            os.system("python Sublist3r/sublist3r.py -d "+ d1 +" -b")
+
+            print(f'\n')
 
         if c == "y":
             m = input(f'''{Fore.LIGHTRED_EX}[?]{Fore.CYAN} do you want to scan more? (y/n): '''+ Fore.GREEN)
@@ -316,5 +327,3 @@ starting NMAP VULN SCANNER...
             m = input(f'''{Fore.LIGHTRED_EX}[?]{Fore.CYAN} do you want to scan more? (y/n): '''+ Fore.GREEN)
             if m == "y":
                 start()
-
-
