@@ -22,7 +22,7 @@ menu()
 def start():
         print(f'''
 {Fore.RED}  
-     [!]{Fore.LIGHTYELLOW_EX}  CHOOSE A NUMBER FROM 1 THROUGH 4 TO START YOUR SCAN!
+     [!]{Fore.LIGHTYELLOW_EX}  CHOOSE A NUMBER FROM 1 THROUGH 3 TO START YOUR SCAN!
 {Fore.CYAN}                            
      [1] recon phase         [2] info gathering        [3] analysis phase                                      
 {Fore.LIGHTYELLOW_EX}      
