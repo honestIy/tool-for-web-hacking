@@ -15,7 +15,7 @@ def menu():
      |__/|__/_____/_____/_/ /_/_/  |_\____/_/ |_/___/_/ |_/\____/   
     {Fore.LIGHTYELLOW_EX}
     type{Fore.GREEN} start {Fore.LIGHTYELLOW_EX}to begin your scan 
-
+    type{Fore.LIGHTBLUE_EX} make {Fore.LIGHTYELLOW_EX}to make a folder for outputs 
 ''')
 menu()
 
@@ -36,6 +36,12 @@ def start():
 
 s = input(f"     {Fore.GREEN}=> ")
 
+def make():
+    os.system("mkdir websites") 
+
+if s == "make":
+    make()
+
 if s == "start":
     start()
 
@@ -45,7 +51,8 @@ while loop:
     option = input(f'''{Fore.LIGHTYELLOW_EX}    (pentester/{Fore.CYAN}menu{Fore.LIGHTYELLOW_EX}){Fore.GREEN} => ''')
     if option == "1":
 
-        os.system("clear")
+        os.system("clear") 
+
 
         print(f'''{Fore.WHITE}
 RECON
@@ -63,17 +70,17 @@ RECON
 
         d1 = input(Fore.RED +f'''{Fore.LIGHTYELLOW_EX}(pentester/menu/{Fore.CYAN}reconphase{Fore.LIGHTYELLOW_EX}){Fore.GREEN} => '''+ Fore.GREEN)
 
-        #os.system("mkdir websites/"+ d1 +"")
-
-        #sys.stdout = open("websites/"+d1+"/" + d1 + '.txt', 'w')
-
         print(Fore.CYAN +'''
 
 starting WHOIS...
             
         '''+ Fore.GREEN)
 
-        os.system("whois " + d1 +"")
+        os.system("mkdir websites/"+ d1 +"")
+
+        time.sleep(2)
+
+        os.system("whois "+ d1 +" | tee websites/"+ d1 +"/whois.txt")
 
         print(f'\n')
 
@@ -86,7 +93,7 @@ starting NSLOOKUP...
             
             '''+ Fore.GREEN)
 
-            os.system("nslookup " + d1 +"")
+            os.system("nslookup " + d1 +" | tee websites/"+ d1 +"/nslookup.txt")
 
             print(f'\n')
 
@@ -99,7 +106,7 @@ starting DIG...
                 
             '''+ Fore.GREEN)
 
-            os.system("dig " + d1 +"")
+            os.system("dig " + d1 +"| tee websites/"+ d1 +"/dig.txt")
 
             print(f'\n')
 
@@ -112,7 +119,7 @@ starting DNSRECON...
             
             '''+ Fore.GREEN)
 
-            os.system("python dnsrecon/dnsrecon.py -d " + d1 + "")
+            os.system("python dnsrecon/dnsrecon.py -d " + d1 + "| tee websites/"+ d1 +"/dnsrecon.txt")
 
             print(f'\n')
 
@@ -127,7 +134,7 @@ starting FIERCE...
             
             '''+ Fore.GREEN)
 
-            os.system("fierce --domain " + d1 +"")
+            os.system("fierce --domain " + d1 +"| tee websites/"+ d1 +"/fierce.txt")
 
             print(f'\n')
 
@@ -140,7 +147,7 @@ starting TRACEROUTE...
             
             '''+ Fore.GREEN)
 
-            os.system("traceroute " + d1 +"")
+            os.system("traceroute " + d1 +"| tee websites/"+ d1 +"/traceroute.txt")
 
             print(f'\n')
 
@@ -153,7 +160,7 @@ starting TAKEOVER...
             
             '''+ Fore.GREEN)
 
-            os.system("python takeover/takeover.py -d " + d1 +"")
+            os.system("python takeover/takeover.py -d " + d1 +"| tee websites/"+ d1 +"/takeover.txt")
 
             print(f'\n')
 
@@ -184,6 +191,8 @@ INFO
 
         d1 = input(f'''{Fore.LIGHTYELLOW_EX}(pentester/menu/{Fore.CYAN}infogathering{Fore.LIGHTYELLOW_EX}){Fore.GREEN} => '''+ Fore.GREEN)
 
+        os.system("mkdir websites/"+ d1 +"")
+
         print(Fore.CYAN +f'''
             
 starting DIRSEARCH...
@@ -192,7 +201,7 @@ starting DIRSEARCH...
             '''+ Fore.GREEN)
 
         extensions = input(Fore.RED +f'''[!] {Fore.CYAN}extensions => '''+ Fore.GREEN)
-        os.system("python dirsearch/dirsearch.py -e "+ extensions +" -u "'https://' + d1 +"")
+        os.system("python dirsearch/dirsearch.py -e "+ extensions +" -u "'https://' + d1 +"| tee websites/"+ d1 +"/dirsearch.txt")
 
         print(f'\n')
 
@@ -205,7 +214,7 @@ starting DIRB...
             
             '''+ Fore.GREEN)
 
-            os.system("dirb "'https://' + d1 +"")
+            os.system("dirb "'https://' + d1 +"| tee websites/"+ d1 +"/dirb.txt")
 
             print(f'\n')
 
@@ -218,7 +227,7 @@ starting WHATWEB...
             
             '''+ Fore.GREEN)
 
-            os.system("whatweb "'https://' + d1 +"")
+            os.system("whatweb "'https://' + d1 +"| tee websites/"+ d1 +"/whatweb.txt")
 
             print(f'\n')
 
@@ -239,7 +248,7 @@ starting AMASS...
 
             options = input(Fore.RED +f'''[!] {Fore.CYAN}extensions => '''+ Fore.GREEN)
 
-            os.system("amass " + options + "-d " + d1 +"")
+            os.system("amass " + options + "-d " + d1 +"| tee websites/"+ d1 +"/amass.txt")
 
             print(f'\n')
 
@@ -257,7 +266,7 @@ starting NMAP...
 
             options = input(Fore.RED +f'''[!] {Fore.CYAN}option => '''+ Fore.GREEN)
 
-            os.system("sudo nmap "+ options +" " + d1 +"")
+            os.system("sudo nmap "+ options +" " + d1 +"| tee websites/"+ d1 +"/nmapPorts.txt")
 
             print(f'\n')
 
@@ -270,7 +279,7 @@ starting sublist3r...
             
             '''+ Fore.GREEN)
 
-            os.system("python Sublist3r/sublist3r.py -d "+ d1 +" -b")
+            os.system("python Sublist3r/sublist3r.py -d "+ d1 +" -b" + "| tee websites/"+ d1 +"/sublist3r.txt")
 
             print(f'\n')
 
@@ -300,13 +309,15 @@ ANALYSIS
 
         d1 = input(f'''{Fore.LIGHTYELLOW_EX}(pentester/menu/{Fore.CYAN}analysisphase{Fore.LIGHTYELLOW_EX}){Fore.GREEN} => '''+ Fore.GREEN)
 
+        os.system("mkdir websites/"+ d1 +"")
+
         print(Fore.CYAN +'''
 
 starting NIKTO...
 
         '''+ Fore.GREEN)
 
-        os.system("nikto -h " + d1 +"")
+        os.system("nikto -h " + d1 +"| tee websites/"+ d1 +"/nikto.txt")
 
         print(f'\n')
 
@@ -319,7 +330,7 @@ starting NMAP VULN SCANNER...
             
             '''+ Fore.GREEN)
 
-            os.system("nmap --script vuln " + d1 +"")
+            os.system("nmap --script vuln " + d1 +"| tee websites/"+ d1 +"/nmapvuln.txt")
 
             print(f'\n')
 
