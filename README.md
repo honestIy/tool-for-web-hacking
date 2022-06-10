@@ -1,6 +1,5 @@
 # Webhacking tool
 
-* ALWAYS UPDATING
 * NOT FINISHED YET
 
 # Installation
